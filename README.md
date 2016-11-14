@@ -59,6 +59,7 @@ There are two types of `GLNotificationBar` style and Five type of `GLNotifyActio
       })
      ```
    * *GLNotifyAction* also has four different types each performs their respective action.
+    
      ```
         public enum GLNotificationActionType {
             case Default  // Apply the default style to the action’s button.
@@ -67,15 +68,15 @@ There are two types of `GLNotificationBar` style and Five type of `GLNotifyActio
             case OnlyTextInput  //Apply a style which removes all other action added and simply adds text field as input to respond notification.
             case Cancel  //Apply a style that indicates the action cancels the operation and leaves things unchanged.
        }
-     ```    
+      ```    
 
-   ![detailedBanner](Screenshots/Detailedbanner.gif)
+   ![detailedBanner](ScreenShots/Detailedbanner.gif)
 
 - .SimpleBanner
    * *.SimpleBanner* is similar to *.DetailedBanner* in appearance, but it's options are restricted. It can't be swiped down to open in detail form.
    * `GLNotifyAction` added to this type of notification bar will not be taken into account.
    
-   ![simpleBanner](Screenshots/SimpleBanner.gif)
+   ![simpleBanner](ScreenShots/SimpleBanner.gif)
 
 - `GLNotifyAction`'s *.OnlyTextInput*
    ``` 
