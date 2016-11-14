@@ -26,7 +26,9 @@ it, simply add the following line to your Podfile:
 `pod 'GLNotificationBar'`
 
 ### Manual
-Copy the file `GLNotificationBar.swift` & `GLNotificationBar.xib` to your project.
+Copy the file `GLNotificationBar.swift` & `GLNotificationBar.xib` from ~/GLNotificationBar/GLNotificationBar/Classes to your project.
+
+### User Guide
 
 - `GLNotificationBar` is simple to use,implementation is similar to `UIAlertController`.
 
@@ -39,7 +41,7 @@ Copy the file `GLNotificationBar.swift` & `GLNotificationBar.xib` to your projec
 
 There are two types of `GLNotificationBar` style and Five type of `GLNotifyAction` types.
 
-1. .DetailedBanner
+- .DetailedBanner
    * *.DetailedBanner* style is similar to ios10 style notification bar, swiping down this type of notification open's in detail, which may include `GLNotifyAction's`
    `GLNotifyAction` can be added to `GLNotificationBar` as follows
    
@@ -65,27 +67,42 @@ There are two types of `GLNotificationBar` style and Five type of `GLNotifyActio
             case OnlyTextInput  //Apply a style which removes all other action added and simply adds text field as input to respond notification.
             case Cancel  //Apply a style that indicates the action cancels the operation and leaves things unchanged.
        }
-    
-   ![DetailedBanner](ScreenShots/DetailedBanner.gif)
+     ```    
+   ![detailedBanner](ScreenShots/detailedbanner.gif)
 
-2. .SimpleBanner
+- .SimpleBanner
    * *.SimpleBanner* is similar to *.DetailedBanner* in appearance, but it's options are restricted. It can't be swiped down to open in detail form.
    * `GLNotifyAction` added to this type of notification bar will not be taken into account.
    
-   ![SimpleBanner](ScreenShots/SimpleBanner.gif)
+   ![simpleBanner](ScreenShots/SimpleBanner.gif)
 
-3. `GLNotifyAction`'s *.OnlyTextInput*
+- `GLNotifyAction`'s *.OnlyTextInput*
    ``` 
       notificationBar.addAction(GLNotifyAction(title: "Reply", style: .OnlyTextInput) { (result) in
          print(result.textResponse)
       })
    ```
-      * *.OnlyTextInput* is some what different from other action types.
-      * Adding this action removes all other action added and stight away presents textfield as option for user input without any user interaction. 
-      * This helps user to repond to a notification with text.
+   * *.OnlyTextInput* is some what different from other action types.
+   * Adding this action removes all other action added and stight away presents textfield as option for user input without any user interaction. 
+   * This helps user to repond to a notification with text.
 
-   ![TextInput_ActionType](ScreenShots/TextInput_ActionType.gif)
+   ![textInput_ActionType](ScreenShots/TextInput_ActionType.gif)
 
+- `notificationBar.showTime`
+   ```
+     notificationBar.showTime(3.0)
+   ```
+   * This method helps to set time interval for notification bar to hide.
+   * The default value is 5.0 seconds.
+   * And 0.0 can used to turn off auto hide of notification bar.
+
+- `notificationBar.notificationSound`
+   ```
+      notificationBar.notificationSound("Your sound name", ofType: ".mp3", vibrate: true)
+   ```
+   * By default `GLNotificationBar` does't play any sound, to play notification sound add this method.
+   * This method helps to play notification sound when it is displayed.
+   * If mentioned sound file is not found means system default sound will be played.
 
 ## Author
 

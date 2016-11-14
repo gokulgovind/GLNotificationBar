@@ -82,9 +82,9 @@ class ViewController: UIViewController {
             }))
             
             
-            //Type: .OnlyTextInput
-            
-//            notificationBar.addAction(GLNotifyAction(title: "OK", style: .OnlyTextInput, handler: { (result) in
+//            //Type: .OnlyTextInput
+//            
+//            notificationBar.addAction(GLNotifyAction(title: "Reply", style: .OnlyTextInput, handler: { (result) in
 //                let alert = UIAlertController(title: result.actionTitle, message: " Apply a style which removes all other action added and simply adds text field as input to respond notification.", preferredStyle: .Alert)
 //                alert.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
 //                self.presentViewController(alert, animated: true, completion: nil)
