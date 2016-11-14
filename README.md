@@ -68,13 +68,14 @@ There are two types of `GLNotificationBar` style and Five type of `GLNotifyActio
             case Cancel  //Apply a style that indicates the action cancels the operation and leaves things unchanged.
        }
      ```    
-   ![detailedBanner](ScreenShots/detailedbanner.gif)
+
+   ![detailedBanner](screenshots/detailedbanner.gif)
 
 - .SimpleBanner
    * *.SimpleBanner* is similar to *.DetailedBanner* in appearance, but it's options are restricted. It can't be swiped down to open in detail form.
    * `GLNotifyAction` added to this type of notification bar will not be taken into account.
    
-   ![simpleBanner](ScreenShots/SimpleBanner.gif)
+   ![simpleBanner](screenshots/simpleBanner.gif)
 
 - `GLNotifyAction`'s *.OnlyTextInput*
    ``` 
@@ -86,7 +87,7 @@ There are two types of `GLNotificationBar` style and Five type of `GLNotifyActio
    * Adding this action removes all other action added and stight away presents textfield as option for user input without any user interaction. 
    * This helps user to repond to a notification with text.
 
-   ![textInput_ActionType](ScreenShots/TextInput_ActionType.gif)
+  ![textInput_ActionType](screenshots/TextInput_ActionType.gif)
 
 - `notificationBar.showTime`
    ```
@@ -96,6 +97,18 @@ There are two types of `GLNotificationBar` style and Five type of `GLNotifyActio
    * The default value is 5.0 seconds.
    * And 0.0 can used to turn off auto hide of notification bar.
 
+
+    ![textInput_ActionType](screenshots/textInput_ActionType.gif)
+
+- `notificationBar.showTime`
+   ```
+     notificationBar.showTime(3.0)
+   ```
+   * This method helps to set time interval for notification bar to hide.
+   * The default value is 5.0 seconds.
+   * And 0.0 can used to turn off auto hide of notification bar.
+
+>>>>>>> origin/master
 - `notificationBar.notificationSound`
    ```
       notificationBar.notificationSound("Your sound name", ofType: ".mp3", vibrate: true)
