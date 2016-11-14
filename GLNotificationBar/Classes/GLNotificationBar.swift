@@ -1,10 +1,10 @@
 //
 //  GLNotificationBar.swift
-//  WorkOut Oct12
+//  GLNotificationBar
 //
-//  Created by VividMacmini7 on 17/10/16.
-//  Copyright © 2016 vivid. All rights reserved.
-
+//  Created by gokul on 17/10/16.
+//  Copyright (c) 2016 gokul. All rights reserved.
+//
 
 import UIKit
 import AVFoundation
@@ -18,11 +18,11 @@ import AVFoundation
  - OnlyTextInput: Apply a style which removes all other action added and simply adds text field as input to respond notification.
  - Cancel: Apply a style that indicates the action cancels the operation and leaves things unchanged.
  */
-public enum GLNotificationActionType {
-    case Default
-    case Destructive
-    case TextInput
-    case OnlyTextInput
+public enum GLNotificationActionType { ///Apply the default style to the action’s button.
+    case Default            ///Apply a style that indicates the action might change or delete data.
+    case Destructive        ///Apply a style that indicates the action opens an textinput field helps to respond notification as string.
+    case TextInput          ///Apply a style which removes all other action added and simply adds text field as input to respond notification.
+    case OnlyTextInput      ///Apply a style that indicates the action cancels the operation and leaves things unchanged.
     case Cancel
 }
 
@@ -32,8 +32,8 @@ public enum GLNotificationActionType {
  - SimpleBanner: Apply the SimpleBanner style that displays notification as simple banner,it can't open in detail by swiping down.
  - DetailedBanner: Apply a style that opens message in detail with `GLNotifyAction` if added.
  */
-public enum GLNotificationStyle {
-    case SimpleBanner
+public enum GLNotificationStyle { ///Apply the SimpleBanner style that displays notification as simple banner,it can't open in detail by swiping down.
+    case SimpleBanner          ///Apply a style that opens message in detail with `GLNotifyAction` if added.
     case DetailedBanner
 }
 
@@ -77,6 +77,7 @@ var messageDidSelect:(Bool -> Void)!
  */
 public class GLNotificationBar: NSObject {
 
+    ///Initialize a new GLNotificationBar.
     public override init() {
         super.init()
     }
@@ -270,12 +271,13 @@ public class GLNotificationBar: NSObject {
   A GLNotifyAction object represents an action that can be taken when tapping a button in an `GLNotificationBar`. You use this class to configure information about a single action, including the title to display in the button, any styling information, and a handler to execute when the user taps the button. After creating an notificatio action object, add it to a `GLNotificationBar` object before displaying the corresponding notification to the user.
  */
 
-public class GLNotifyAction : NSObject {
-    public var actionTitle:String!
-    public var textResponse:String!
+public class GLNotifyAction : NSObject {  /// String `actionTitle` is the title of the button added as action to notification bar.
+    public var actionTitle:String! /// String `textResponse` is the text returned from textfield which is added as one of the action to notification bar.`
+    public var textResponse:String!  ///Returns the action style of particular `GLNotifyAction` clicked.
     public var actionStyle:GLNotificationActionType!
     var didSelectAction:(GLNotifyAction -> Void)?
 
+    ///Initialize a new GLNotifyAction.
     public override init() {
         super.init()
     }
@@ -339,7 +341,7 @@ class CustomView : UIView {
     private func commonInit() {
         NSBundle(forClass: CustomView.self)
             .loadNibNamed("GLNotificationBar", owner:self, options:nil)
-//        NSBundle.mainBundle().loadNibNamed("CustomView", owner: self, options: nil)
+//        NSBundle.mainBundle().loadNibNamed("GLNotificationBar", owner: self, options: nil)
         guard let content = view else { return }
         content.frame = self.bounds
         content.autoresizingMask = [.FlexibleHeight, .FlexibleWidth]
@@ -449,7 +451,7 @@ class CustomView : UIView {
         
         //Close Button
         let closeButton = UIButton()
-        closeButton.setImage(UIImage(named:"Close" ), forState: UIControlState.Normal)
+        closeButton.setImage(UIImage(named:"Close.png" ), forState: UIControlState.Normal)
         closeButton.addTarget(self, action: #selector(CustomView.closeMessage(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         closeButton.translatesAutoresizingMaskIntoConstraints = false
         detailedbanner.addSubview(closeButton)
