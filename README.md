@@ -1,6 +1,6 @@
 # GLNotificationBar
 
-[![CI Status](http://img.shields.io/travis/gokul/GLNotificationBar.svg?style=flat)](https://travis-ci.org/gokul/GLNotificationBar)
+[![CI Status](https://api.travis-ci.org/cezarywojcik/CWStatusBarNotification.png?branch=master)](https://travis-ci.org/gokulgovind/GLNotificationBar)
 [![Version](https://img.shields.io/cocoapods/v/GLNotificationBar.svg?style=flat)](http://cocoapods.org/pods/GLNotificationBar)
 [![License](https://img.shields.io/cocoapods/l/GLNotificationBar.svg?style=flat)](http://cocoapods.org/pods/GLNotificationBar)
 [![Platform](https://img.shields.io/cocoapods/p/GLNotificationBar.svg?style=flat)](http://cocoapods.org/pods/GLNotificationBar)
@@ -70,7 +70,7 @@ There are two types of `GLNotificationBar` style and Five type of `GLNotifyActio
        }
       ```    
 
-   ![detailedBanner](ScreenShots/Detailedbanner.gif)
+   ![detailedBanner](ScreenShots/DetailedBanner.gif)
 
 - .SimpleBanner
    * *.SimpleBanner* is similar to *.DetailedBanner* in appearance, but it's options are restricted. It can't be swiped down to open in detail form.
