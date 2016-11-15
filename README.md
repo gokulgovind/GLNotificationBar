@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/cocoapods/l/GLNotificationBar.svg?style=flat)](http://cocoapods.org/pods/GLNotificationBar)
 [![Platform](https://img.shields.io/cocoapods/p/GLNotificationBar.svg?style=flat)](http://cocoapods.org/pods/GLNotificationBar)
 
-Version: 0.1.0, Language: Swift 2.2
+Version: 0.2.0, Language: Swift 2.2
 
 Author: Gokul [@gokulgovind](https://twitter.com/gokulgovind_)
 
@@ -73,7 +73,6 @@ There are two types of `GLNotificationBar` style and Five type of `GLNotifyActio
         case Cancel  //Apply a style that indicates the action cancels the operation and leaves things unchanged.
      }
      ```    
-
 
    ![detailedBanner](ScreenShots/DetailedBanner.gif)
 
