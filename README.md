@@ -1,6 +1,6 @@
 # GLNotificationBar
 
-[![CI Status](https://api.travis-ci.org/cezarywojcik/CWStatusBarNotification.png?branch=master)](https://travis-ci.org/gokulgovind/GLNotificationBar)
+[![CI Status](https://api.travis-ci.org/gokulgovind/GLNotificationBar.png?branch=master)](https://travis-ci.org/gokulgovind/GLNotificationBar)
 [![Version](https://img.shields.io/cocoapods/v/GLNotificationBar.svg?style=flat)](http://cocoapods.org/pods/GLNotificationBar)
 [![License](https://img.shields.io/cocoapods/l/GLNotificationBar.svg?style=flat)](http://cocoapods.org/pods/GLNotificationBar)
 [![Platform](https://img.shields.io/cocoapods/p/GLNotificationBar.svg?style=flat)](http://cocoapods.org/pods/GLNotificationBar)
