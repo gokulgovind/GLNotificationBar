@@ -11,29 +11,34 @@ import AVFoundation
 
 /**
  Notification action types.
- 
- - Default: Apply the default style to the action’s button.
- - Destructive: Apply a style that indicates the action might change or delete data.
- - TextInput: Apply a style that indicates the action opens an textinput field helps to respond notification as string.
- - OnlyTextInput: Apply a style which removes all other action added and simply adds text field as input to respond notification.
- - Cancel: Apply a style that indicates the action cancels the operation and leaves things unchanged.
+ - Default
+ - Destructive
+ - TextInput
+ - OnlyTextInput
+ - Cancel
  */
 public enum GLNotificationActionType {
+    ///Default: Apply the default style to the action’s button.
     case Default
+    ///Destructive: Apply a style that indicates the action might change or delete data.
     case Destructive
+    ///TextInput: Apply a style that indicates the action opens an textinput field helps to respond notification as string.
     case TextInput
+    ///OnlyTextInput: Apply a style which removes all other action added and simply adds text field as input to respond notification.
     case OnlyTextInput
+    ///Cancel: Apply a style that indicates the action cancels the operation and leaves things unchanged.
     case Cancel
 }
 
 /**
  Notification action types.
- 
- - SimpleBanner: Apply the SimpleBanner style that displays notification as simple banner,it can't open in detail by swiping down.
- - DetailedBanner: Apply a style that opens message in detail with `GLNotifyAction` if added.
+ - SimpleBanner
+ - DetailedBanner
  */
 public enum GLNotificationStyle {
+    ///SimpleBanner: Apply the SimpleBanner style that displays notification as simple banner,it can't open in detail by swiping down.
     case SimpleBanner
+    ///DetailedBanner: Apply a style that opens message in detail with `GLNotifyAction` if added.
     case DetailedBanner
 }
 
@@ -101,7 +106,14 @@ public class GLNotificationBar: NSObject {
         
         actionArray = [GLNotifyAction]()
         messageDidSelect = handler
-        setUpNotificationBar(title, body: message , notificationStyle:preferredStyle)
+        if ((APP_DELEGATE.keyWindow?.subviews) == nil) {
+            let time = dispatch_time(DISPATCH_TIME_NOW, Int64(5.0 * Double(NSEC_PER_SEC)))
+            dispatch_after(time, dispatch_get_main_queue(), {
+                self.setUpNotificationBar(title, body: message , notificationStyle:preferredStyle)
+            })
+        }else{
+            setUpNotificationBar(title, body: message , notificationStyle:preferredStyle)
+        }
 
         
          dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(1.0 * Double(NSEC_PER_SEC) )), dispatch_get_main_queue()) {
