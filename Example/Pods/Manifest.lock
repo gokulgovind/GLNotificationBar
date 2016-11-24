@@ -1,5 +1,5 @@
 PODS:
-  - GLNotificationBar (0.2.0)
+  - GLNotificationBar (1.2.1)
 
 DEPENDENCIES:
   - GLNotificationBar (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  GLNotificationBar: af0a0eaaf59de08ea50c4bf5d52966b7a8689d88
+  GLNotificationBar: 168f691a3ebbd0848734e6b4e3971e57ade176a8
 
 PODFILE CHECKSUM: 6487c15529027d7034f5cfcb00ea02b99d275a2b
 

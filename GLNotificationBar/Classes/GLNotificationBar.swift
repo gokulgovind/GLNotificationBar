@@ -17,9 +17,9 @@ import AVFoundation
  - OnlyTextInput
  - Cancel
  */
-public enum GLNotificationActionType {
+@objc public enum GLNotificationActionType:Int {
     ///Default: Apply the default style to the action’s button.
-    case Default
+    case Default = 0
     ///Destructive: Apply a style that indicates the action might change or delete data.
     case Destructive
     ///TextInput: Apply a style that indicates the action opens an textinput field helps to respond notification as string.
@@ -35,9 +35,9 @@ public enum GLNotificationActionType {
  - SimpleBanner
  - DetailedBanner
  */
-public enum GLNotificationStyle {
+@objc public enum GLNotificationStyle:Int {
     ///SimpleBanner: Apply the SimpleBanner style that displays notification as simple banner,it can't open in detail by swiping down.
-    case SimpleBanner
+    case SimpleBanner = 0
     ///DetailedBanner: Apply a style that opens message in detail with `GLNotifyAction` if added.
     case DetailedBanner
 }
@@ -82,7 +82,7 @@ var messageDidSelect:(Bool -> Void)!
  */
 public class GLNotificationBar: NSObject {
 
-    public override init() {
+    @objc public override init() {
         super.init()
     }
     
@@ -101,7 +101,7 @@ public class GLNotificationBar: NSObject {
      - Returns: A inilized GLNotificationBar object.
      */
     
-    public init(title:String!, message :String!, preferredStyle:GLNotificationStyle, handler: ((Bool) -> Void)?) {
+    @objc public init(title:String!, message :String!, preferredStyle:GLNotificationStyle, handler: ((Bool) -> Void)?) {
         super.init()
         
         actionArray = [GLNotifyAction]()
@@ -137,7 +137,7 @@ public class GLNotificationBar: NSObject {
      - Returns: No return value.
      */
 
-    public func showTime(timeInSec: Double){
+    @objc public func showTime(timeInSec: Double){
         SHOW_TIME = timeInSec
     }
 
@@ -154,7 +154,7 @@ public class GLNotificationBar: NSObject {
      
      - Returns: No return value.
      */
-    public func notificationSound(name: String!, ofType:String!, vibrate:Bool){
+    @objc public func notificationSound(name: String!, ofType:String!, vibrate:Bool){
 
         if vibrate {
             AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
@@ -185,7 +185,7 @@ public class GLNotificationBar: NSObject {
      - Returns: No return value.
      */
     
-    public func addAction(action: GLNotifyAction){
+    @objc public func addAction(action: GLNotifyAction){
         actionArray.append(action)    //Action for notification didselect
     }
 
@@ -283,12 +283,12 @@ public class GLNotificationBar: NSObject {
  */
 
 public class GLNotifyAction : NSObject {
-    public var actionTitle:String!
-    public var textResponse:String!
-    public var actionStyle:GLNotificationActionType!
+    @objc public var actionTitle:String!
+    @objc public var textResponse:String!
+    @objc public var actionStyle:GLNotificationActionType = .Default
     var didSelectAction:(GLNotifyAction -> Void)?
 
-    public override init() {
+    @objc public override init() {
         super.init()
     }
 
@@ -305,7 +305,7 @@ public class GLNotifyAction : NSObject {
      - Returns: No return value.
      */
     
-    public init(title:String!, style:GLNotificationActionType, handler: ((GLNotifyAction) -> Void)?){
+    @objc public init(title:String!, style:GLNotificationActionType, handler: ((GLNotifyAction) -> Void)?){
         actionTitle = title
         actionStyle = style
         didSelectAction = handler
@@ -844,6 +844,7 @@ class CustomView : UIView {
         
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.placeholder = action.actionTitle
+        textField.font = UIFont.systemFontOfSize(14)
         textField.borderStyle = UITextBorderStyle.RoundedRect
         
         let button = UIButton()
@@ -851,6 +852,7 @@ class CustomView : UIView {
         button.setTitle("Send", forState: .Normal)
         button.tag = senderTag
         button.setTitleColor(UIColor.init(netHex: 0x095FFE), forState: .Normal)
+        button.titleLabel?.font = UIFont.systemFontOfSize(15)
         button.addTarget(self, action: #selector(CustomView.sendButtonPressed(_:)), forControlEvents: .TouchUpInside)
         
         
@@ -864,7 +866,7 @@ class CustomView : UIView {
         var constraints = [NSLayoutConstraint]()
         let dic = ["textField":textField,"button":button,"Main":toolBar];
         
-        let horizontalConstraint = NSLayoutConstraint.constraintsWithVisualFormat("H:|-[textField]-[button(75)]-|", options: [], metrics: nil, views: dic)
+        let horizontalConstraint = NSLayoutConstraint.constraintsWithVisualFormat("H:|-[textField][button(60)]|", options: [], metrics: nil, views: dic)
         constraints += horizontalConstraint
         
         let verticalConstraint = NSLayoutConstraint.constraintsWithVisualFormat("V:|-[textField(30)]-|", options: [], metrics: nil, views: dic)
