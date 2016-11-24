@@ -19,6 +19,7 @@ Author: Gokul [@gokulgovind](https://twitter.com/gokulgovind_)
 
  To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
+   
 ## Requirements
  `GLNotificationBar` requires iOS 8.0+.
 
@@ -34,8 +35,29 @@ it, simply add the following line to your Podfile:
 ### Manual
 Copy the file `GLNotificationBar.swift` & `GLNotificationBar.xib` from ~/GLNotificationBar/GLNotificationBar/Classes to your project.
 
-### User Guide
+## User Guide
 
+### Swift:
+  ```
+  let notificationBar = GLNotificationBar(title: "Today Quote", message: "Yesterday is today's memory, and tomorrow is today's dream.", preferredStyle: .DetailedBanner, handler: nil)
+  notificationBar.addAction(GLNotifyAction(title: "Like", style: .Default, handler: { (action) in
+     print("I Like this quote")
+  }))
+  notificationBar.addAction(GLNotifyAction(title: "Cancel", style: .Cancel, handler: nil))
+  ```
+### Objective C:
+  - Run pod install. `pod 'GLNotificationBar'`
+  - Then add ```@import GLNotificationBar;``` at top of your viewcontroller class.
+  - Now add following code wherever you want. 
+    ```
+    GLNotificationBar * notificationBar = [[GLNotificationBar alloc]initWithTitle:@"Today Quote" message:@"Yesterday is today's memory, and tomorrow is today's dream." preferredStyle:0 handler:nil];
+    [notificationBar addAction:[[GLNotifyAction alloc]initWithTitle:@"Like" style:0 handler:^(GLNotifyAction * action) {
+        NSLog(@"I Like this quote");
+        //NSLog(@"Text reply %@",action.textResponse);
+    }]];
+    [notificationBar addAction:[[GLNotifyAction alloc]initWithTitle:@"Cancel" style:4 handler:nil]];
+    ```
+### Diving In Depth
 - `GLNotificationBar` is simple to use,implementation is similar to `UIAlertController`.
 
    ```
