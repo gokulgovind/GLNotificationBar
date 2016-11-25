@@ -223,11 +223,14 @@ public class GLNotificationBar: NSObject {
             break
         }
         
-        let attributeString = NSMutableAttributedString(string: String("\(header)\n\(body)"))
-        attributeString.addAttributes([NSFontAttributeName:UIFont.boldSystemFontOfSize(15)], range: NSRange(location: 0, length: header.characters.count))
-        notificationBar.body.attributedText = attributeString
+        if header.characters.count == 0 {
+            notificationBar.body.text = body
+        }else{
+            let attributeString = NSMutableAttributedString(string: String("\(header)\n\(body)"))
+            attributeString.addAttributes([NSFontAttributeName:UIFont.boldSystemFontOfSize(15)], range: NSRange(location: 0, length: header.characters.count))
+            notificationBar.body.attributedText = attributeString
+        }
 
-        
         var infoDic:Dictionary = NSBundle.mainBundle().infoDictionary!
         appName = infoDic["CFBundleName"] as? String
         notificationBar.header.text = appName
@@ -423,8 +426,12 @@ class CustomView : UIView {
         let tempContainer = body.componentsSeparatedByString("\n")
         let rangeStr = tempContainer[0]
         let attributeString = NSMutableAttributedString(string: body)
-        attributeString.addAttributes([NSFontAttributeName:UIFont.boldSystemFontOfSize(15)], range: NSRange(location: 0, length: rangeStr.characters.count))
-        attributeString.addAttributes([NSFontAttributeName:UIFont.systemFontOfSize(15)], range: NSRange(location: rangeStr.characters.count, length: tempContainer[1].characters.count))
+        if body.containsString("\n") {
+            attributeString.addAttributes([NSFontAttributeName:UIFont.boldSystemFontOfSize(15)], range: NSRange(location: 0, length: rangeStr.characters.count))
+            attributeString.addAttributes([NSFontAttributeName:UIFont.systemFontOfSize(15)], range: NSRange(location: rangeStr.characters.count, length: tempContainer[1].characters.count))
+        }else{
+            attributeString.addAttributes([NSFontAttributeName:UIFont.systemFontOfSize(15)], range: NSRange(location: 0, length: body.characters.count))
+        }
         
         notificationMessage.translatesAutoresizingMaskIntoConstraints = false
         notificationMessage.font = UIFont.systemFontOfSize(25)
@@ -630,7 +637,6 @@ class CustomView : UIView {
                 notificationBar.frame.origin = CGPointMake(0, -BAR_HEIGHT)
                 }, completion: { (yes) in
                     notificationBar.removeFromSuperview()
-                    APP_DELEGATE.keyWindow?.windowLevel = 0.0
             })
         }
         closeMessage(nil)
@@ -676,6 +682,7 @@ class CustomView : UIView {
         case .Ended:
             
             if gestureRecognizer.view?.frame.origin.y  < -(self.visualEffectView.frame.origin.y) {
+                APP_DELEGATE.keyWindow?.windowLevel = 0.0
                 actionArray = [GLNotifyAction]()  //Clear cached action before leaving
                 self.removeFromSuperview()
                 return
@@ -914,8 +921,9 @@ class CustomView : UIView {
     @IBAction func closeMessage(sender: UIButton?) {
         actionArray = [GLNotifyAction]()  //Clear cached action before leaving
         textField.resignFirstResponder()
-        
-        UIView.animateWithDuration(0.5, animations: { 
+        APP_DELEGATE.keyWindow?.windowLevel = 0.0
+
+        UIView.animateWithDuration(0.5, animations: {
             self.mainView.frame.origin = CGPointMake(0, (APP_DELEGATE.keyWindow?.frame.size.height)!)
             }) { (ok) in
                 UIView.animateWithDuration(2.0, delay: 0.5, options: [], animations: {
