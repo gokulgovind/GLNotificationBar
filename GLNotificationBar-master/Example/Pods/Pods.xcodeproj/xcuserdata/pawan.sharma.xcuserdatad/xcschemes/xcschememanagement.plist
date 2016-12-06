@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>GLNotificationBar-GLNotificationBar.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>GLNotificationBar.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>Pods-GLNotificationBar_Example.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>Pods-GLNotificationBar_Tests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>1407635236A16AA68FDD84903459E7E5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3AC347AF30B3D1B09D9E55CFF8E6B633</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>459D0836942D4C574D5E8AC3DE4FDBB0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EB00213DA52A4850B033ED410196C03C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

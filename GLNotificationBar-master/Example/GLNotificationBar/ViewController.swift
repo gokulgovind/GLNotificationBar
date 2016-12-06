@@ -47,7 +47,7 @@ class ViewController: UIViewController {
             style = .simpleBanner
         }
         
-        let notificationBar = GLNotificationBar(title: notificationTitle.text ?? "", message:notificationMessage.text ?? "" , preferredStyle:style) { (bool) in
+        let notificationBar = GLNotificationBar(title: notificationTitle.text, message:notificationMessage.text , preferredStyle:style) { (bool) in
             let alert = UIAlertController(title: "Handler", message: "Catch didSelectNotification action in GLNotificationBar completion handler.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)
