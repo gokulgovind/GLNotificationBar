@@ -5,13 +5,13 @@
 [![License](https://img.shields.io/cocoapods/l/GLNotificationBar.svg?style=flat)](http://cocoapods.org/pods/GLNotificationBar)
 [![Platform](https://img.shields.io/cocoapods/p/GLNotificationBar.svg?style=flat)](http://cocoapods.org/pods/GLNotificationBar)
 
-**FYI:** Will be updated with **swift 3.0** ASAP.
+**FYI:** Updated with **swift 3.0**. For Swift 2 use tag 1.3.3
 
 ![overView](ScreenShots/Demo.png)
 
 ## Note
 
- `GLNotificationBar` is a library that allows you to easily create banner notifications that appear on top of screen, used to handle push notification in active state.Made with `xcode 7.3.1` and `swift 2.2`
+ `GLNotificationBar` is a library that allows you to easily create banner notifications that appear on top of screen, used to handle push notification in active state.Made with `xcode 8.3.1` and `swift 3`
 
 ## Example
 
