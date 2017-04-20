@@ -21,6 +21,7 @@ Pod::Spec.new do |s|
  GLNotificationBar is a open source library that lets developers to display push notification or any alert message to end user as banner. iOS below 10 does't displays notification when app is active. This library is inspired by Apple's ios10 notification bar.
                        DESC
 
+  
   s.homepage         = 'https://github.com/gokulgovind/GLNotificationBar'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }

@@ -1,6 +1,6 @@
 {
   "name": "GLNotificationBar",
-  "version": "1.2.1",
+  "version": "2.3.3",
   "summary": "GLNotificationBar lets user to handle push  notification when app is active.",
   "description": "GLNotificationBar is a open source library that lets developers to display push notification or any alert message to end user as banner. iOS below 10 does't displays notification when app is active. This library is inspired by Apple's ios10 notification bar.",
   "homepage": "https://github.com/gokulgovind/GLNotificationBar",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/gokulgovind/GLNotificationBar.git",
-    "tag": "1.2.1"
+    "tag": "2.3.3"
   },
   "social_media_url": "https://twitter.com/gokulgovind_",
   "platforms": {

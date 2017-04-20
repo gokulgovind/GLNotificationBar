@@ -6,6 +6,6 @@ target 'GLNotificationBar_Example' do
   target 'GLNotificationBar_Tests' do
     inherit! :search_paths
 
-    
+
   end
 end

@@ -44,14 +44,14 @@
 
 /* Begin PBXFileReference section */
 		134434EE0DA8E39F7802C287CFB6C32E /* Pods-GLNotificationBar_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GLNotificationBar_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		170ED2997A7EE37DD1A340F2A31FD2F0 /* Close.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = Close.png; sourceTree = "<group>"; };
+		170ED2997A7EE37DD1A340F2A31FD2F0 /* Close.png */ = {isa = PBXFileReference; includeInIndex = 1; path = Close.png; sourceTree = "<group>"; };
 		267F10FE56B7A5B6A338C9B5A625185E /* Pods-GLNotificationBar_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GLNotificationBar_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		2BA63207B6D7C61DCF164357B85C0432 /* GLNotificationBar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GLNotificationBar.swift; sourceTree = "<group>"; };
 		2C120EAF1E8B5D47BFAA56402023F096 /* GLNotificationBar-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GLNotificationBar-prefix.pch"; sourceTree = "<group>"; };
 		2D21DFBB0FB215CBC58E3C42CD46777E /* GLNotificationBar-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GLNotificationBar-dummy.m"; sourceTree = "<group>"; };
 		2F6C39F4CDB838C724FA19B3226BF587 /* GLNotificationBar.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = GLNotificationBar.xib; sourceTree = "<group>"; };
 		34642766CEA175CAEE207FBDFA79405C /* Pods-GLNotificationBar_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GLNotificationBar_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		428F9E719CFFF7BF32382426BE4A6C7E /* GLNotificationBar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GLNotificationBar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		428F9E719CFFF7BF32382426BE4A6C7E /* GLNotificationBar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = GLNotificationBar.framework; path = GLNotificationBar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FBB7D4FF4ECB79531DF3244A20BFA93 /* ResourceBundle-GLNotificationBar-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-GLNotificationBar-Info.plist"; sourceTree = "<group>"; };
 		5C0FC37AD651DE71C4496802C30F07DC /* Pods-GLNotificationBar_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-GLNotificationBar_Tests-umbrella.h"; sourceTree = "<group>"; };
 		5E84F269766BD634720F2457D54C24CF /* GLNotificationBar.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GLNotificationBar.xcconfig; sourceTree = "<group>"; };
@@ -62,23 +62,23 @@
 		6CFB95875B4A06DC4988D82007B34141 /* Pods-GLNotificationBar_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-GLNotificationBar_Example-umbrella.h"; sourceTree = "<group>"; };
 		718393196B4E11A905573799F111B57C /* Pods-GLNotificationBar_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GLNotificationBar_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		74A4886959AFD079B92CE204F08EE5DF /* Pods-GLNotificationBar_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-GLNotificationBar_Tests-dummy.m"; sourceTree = "<group>"; };
-		79ACFE112E07C4CAB1D6A5E9D0936B30 /* Close@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "Close@2x.png"; sourceTree = "<group>"; };
+		79ACFE112E07C4CAB1D6A5E9D0936B30 /* Close@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; path = "Close@2x.png"; sourceTree = "<group>"; };
 		7BB77FD316EA922B73E80DCEF8244507 /* Pods-GLNotificationBar_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-GLNotificationBar_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		7EC994CDC2D681BA26389F78A7E4B325 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		839F67FD6F93223338799A499427F7DB /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		880C30CE28386EE0D71E4591E13BE03F /* Pods_GLNotificationBar_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GLNotificationBar_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		89D1298B651E9F413DE2A583096F7BAB /* Pods-GLNotificationBar_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-GLNotificationBar_Tests.modulemap"; sourceTree = "<group>"; };
+		880C30CE28386EE0D71E4591E13BE03F /* Pods_GLNotificationBar_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_GLNotificationBar_Example.framework; path = "Pods-GLNotificationBar_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		89D1298B651E9F413DE2A583096F7BAB /* Pods-GLNotificationBar_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-GLNotificationBar_Tests.modulemap"; sourceTree = "<group>"; };
 		9129AAAB2491D096517E283D558D3A97 /* Pods-GLNotificationBar_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GLNotificationBar_Example-resources.sh"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		968AD122D686DF54A2AFD71E2DE4CB0B /* Pods_GLNotificationBar_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GLNotificationBar_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		97E34B07746E6E0466458E6667408703 /* Pods-GLNotificationBar_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-GLNotificationBar_Example.modulemap"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		968AD122D686DF54A2AFD71E2DE4CB0B /* Pods_GLNotificationBar_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_GLNotificationBar_Tests.framework; path = "Pods-GLNotificationBar_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		97E34B07746E6E0466458E6667408703 /* Pods-GLNotificationBar_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-GLNotificationBar_Example.modulemap"; sourceTree = "<group>"; };
 		A627C49099C6CA9B06B6F2E897F56439 /* Pods-GLNotificationBar_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GLNotificationBar_Example-frameworks.sh"; sourceTree = "<group>"; };
 		A8E5336837229D83E29FA6232EDD2D85 /* Pods-GLNotificationBar_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-GLNotificationBar_Example-dummy.m"; sourceTree = "<group>"; };
 		AD4BB16A086CDE581963EDABF0672FA6 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B7A7F80428FECE24E2EC5535F9F07F61 /* GLNotificationBar.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GLNotificationBar.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7A7F80428FECE24E2EC5535F9F07F61 /* GLNotificationBar.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = GLNotificationBar.bundle; path = GLNotificationBar.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAF8C341BB83573539AEE799C503CC7B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3AED74BE35A269327708BF3F505EB6F /* Pods-GLNotificationBar_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GLNotificationBar_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		DA315EEF13D73475C060E3AE24DD1F72 /* GLNotificationBar.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = GLNotificationBar.modulemap; sourceTree = "<group>"; };
+		DA315EEF13D73475C060E3AE24DD1F72 /* GLNotificationBar.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = GLNotificationBar.modulemap; sourceTree = "<group>"; };
 		E568296A9CDB59C401C84644F5A13B7D /* Pods-GLNotificationBar_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GLNotificationBar_Tests-resources.sh"; sourceTree = "<group>"; };
 		E5CDE7ED817AFA821CC216D938DD01B5 /* Pods-GLNotificationBar_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-GLNotificationBar_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -144,6 +144,7 @@
 				170ED2997A7EE37DD1A340F2A31FD2F0 /* Close.png */,
 				79ACFE112E07C4CAB1D6A5E9D0936B30 /* Close@2x.png */,
 			);
+			name = Assets;
 			path = Assets;
 			sourceTree = "<group>";
 		};
@@ -152,6 +153,7 @@
 			children = (
 				75AC429DEA7A279BD821C3837624C7A4 /* Classes */,
 			);
+			name = GLNotificationBar;
 			path = GLNotificationBar;
 			sourceTree = "<group>";
 		};
@@ -184,6 +186,7 @@
 				2BA63207B6D7C61DCF164357B85C0432 /* GLNotificationBar.swift */,
 				2F6C39F4CDB838C724FA19B3226BF587 /* GLNotificationBar.xib */,
 			);
+			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -202,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 			);
+			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -211,6 +215,7 @@
 				17DF7E495E53C12149E915102D5A6699 /* Assets */,
 				83F9C7FBC27A152316FB9164192AB0FF /* Classes */,
 			);
+			name = GLNotificationBar;
 			path = GLNotificationBar;
 			sourceTree = "<group>";
 		};
@@ -396,20 +401,6 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0700;
-				TargetAttributes = {
-					1407635236A16AA68FDD84903459E7E5 = {
-						LastSwiftMigration = 0830;
-					};
-					3AC347AF30B3D1B09D9E55CFF8E6B633 = {
-						LastSwiftMigration = 0830;
-					};
-					459D0836942D4C574D5E8AC3DE4FDBB0 = {
-						LastSwiftMigration = 0830;
-					};
-					EB00213DA52A4850B033ED410196C03C = {
-						LastSwiftMigration = 0830;
-					};
-				};
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -560,7 +551,6 @@
 				PRODUCT_NAME = GLNotificationBar;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = bundle;
 			};
@@ -595,7 +585,6 @@
 				PRODUCT_NAME = Pods_GLNotificationBar_Tests;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -632,7 +621,6 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -651,7 +639,6 @@
 				PRODUCT_NAME = GLNotificationBar;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = bundle;
 			};
@@ -686,14 +673,13 @@
 				PRODUCT_NAME = Pods_GLNotificationBar_Example;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
-		3C60E9FB6DABCEDB35C2B896B8FC8DE1 /* Debug */ = {
+		356FA85BCC535A6C7056CC6E75217FCB /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5E84F269766BD634720F2457D54C24CF /* GLNotificationBar.xcconfig */;
 			buildSettings = {
@@ -701,7 +687,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -714,17 +700,16 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/GLNotificationBar/GLNotificationBar.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = GLNotificationBar;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
 		44CDBB6D11DE06DB64D6268622BDC47E /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -766,7 +751,7 @@
 			};
 			name = Release;
 		};
-		DBF070C56B3751EA70AD051092ECEC81 /* Release */ = {
+		D144FB73DCEF4D3C159C65D29625CA6E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5E84F269766BD634720F2457D54C24CF /* GLNotificationBar.xcconfig */;
 			buildSettings = {
@@ -774,7 +759,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -787,16 +772,17 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/GLNotificationBar/GLNotificationBar.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = GLNotificationBar;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
 		FDC5C4382CC274280E3E4304A2BF7DD3 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -827,7 +813,6 @@
 				PRODUCT_NAME = Pods_GLNotificationBar_Tests;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -858,8 +843,8 @@
 		7414C33F2E7E16AF3114F7EB0BC6E6DD /* Build configuration list for PBXNativeTarget "GLNotificationBar" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3C60E9FB6DABCEDB35C2B896B8FC8DE1 /* Debug */,
-				DBF070C56B3751EA70AD051092ECEC81 /* Release */,
+				D144FB73DCEF4D3C159C65D29625CA6E /* Debug */,
+				356FA85BCC535A6C7056CC6E75217FCB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
