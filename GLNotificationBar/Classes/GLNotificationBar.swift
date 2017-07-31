@@ -32,6 +32,20 @@ fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
   }
 }
 
+/**
+ Notification color types.
+ - ExtraLight
+ - Light
+ - Dark
+ */
+@objc public enum GLNotificationColorType:Int {
+    ///extraLight: Apply the extra light style.
+    case extraLight = 0
+    ///light: Apply the light style.
+    case light
+    ///dark: Apply the dark style.
+    case dark
+}
 
 /**
  Notification action types.
@@ -212,6 +226,27 @@ open class GLNotificationBar: NSObject {
         actionArray.append(action)    //Action for notification didselect
     }
 
+    
+    @objc open func setColorStyle(_ color: GLNotificationColorType){
+        switch color {
+        case .extraLight:
+            notificationBar.visualEffectView.effect = UIBlurEffect(style: .extraLight)
+            notificationBar.body.textColor = UIColor.black
+            notificationBar.header.textColor = UIColor.black
+            return
+        case .light:
+            notificationBar.visualEffectView.effect = UIBlurEffect(style: .light)
+            notificationBar.body.textColor = UIColor.black
+            notificationBar.header.textColor = UIColor.black
+            return
+        case .dark:
+            notificationBar.visualEffectView.effect = UIBlurEffect(style: .dark)
+            notificationBar.body.textColor = UIColor.white
+            notificationBar.header.textColor = UIColor.white
+            return
+        }
+    }
+    
     @IBAction func hideNotification(_ sender:UIButton) {
         if (notificationBar != nil) {
             UIView.animate(withDuration: 0.5, animations: {
