@@ -15,6 +15,7 @@
                 <outlet property="body" destination="YG9-G5-ayn" id="TXx-oP-dlQ"/>
                 <outlet property="header" destination="3Ac-00-GtJ" id="Si9-Ut-T1r"/>
                 <outlet property="notificationStyleIndicator" destination="vuf-4T-NEn" id="J0u-7E-aRJ"/>
+                <outlet property="notificationView" destination="aOg-WN-VQl" id="3A9-Mk-MQX"/>
                 <outlet property="view" destination="iN0-l3-epB" id="mp8-dz-x3w"/>
                 <outlet property="visualEffectView" destination="ftg-mk-xWv" id="FZL-6h-Ten"/>
             </connections>
