@@ -109,7 +109,7 @@ var actionArray = [GLNotifyAction]()
 var timer:Timer?
 
 
-var messageDidSelect:((Bool) -> Void)!
+var messageDidSelect:((Bool) -> Void)?
 
 /**
    A GLNotificationBar object displays an banner message to user (**iOS 10 Style**) over top of the screen which helps to handle local or remote notification when app is in active state. 
@@ -246,14 +246,14 @@ open class GLNotificationBar: NSObject {
             return
         }
     }
+    
     @objc open func setShaddow(_ shadow: Bool){
         if (shadow){
-            notificationBar.translatesAutoresizingMaskIntoConstraints = false
-            notificationBar.layer.shadowColor = UIColor.black.cgColor
-            notificationBar.layer.shadowOpacity = 1
-            notificationBar.layer.shadowOffset = CGSize.zero
-            notificationBar.layer.shadowRadius = 10
-            notificationBar.backgroundColor = UIColor.white
+            notificationBar.notificationView.layer.shadowColor = UIColor.black.cgColor
+            notificationBar.notificationView.layer.shadowOpacity = 0.4
+            notificationBar.notificationView.layer.shadowOffset = CGSize.zero
+            notificationBar.notificationView.layer.shadowRadius = 7
+            notificationBar.notificationView.backgroundColor = UIColor.white
         }
     }
     
@@ -324,6 +324,7 @@ open class GLNotificationBar: NSObject {
         notificationBar.appIcon.clipsToBounds = true
         
         
+        notificationBar.notificationView.layer.cornerRadius = 14.0
         notificationBar.visualEffectView.layer.cornerRadius = 14.0
         notificationBar.visualEffectView.clipsToBounds = true
         
@@ -393,6 +394,7 @@ class CustomView : UIView {
     @IBOutlet weak var visualEffectView: UIVisualEffectView!
     @IBOutlet weak var appIcon: UIImageView!
     @IBOutlet weak var notificationStyleIndicator: UIView!
+    @IBOutlet weak var notificationView: UIView!
     
     //MARK: Variables:
     var dismissLabelAlpha:CGFloat = 0.0
@@ -710,7 +712,7 @@ class CustomView : UIView {
             })
         }
         closeMessage(nil)
-        messageDidSelect(true)
+        messageDidSelect?(true)
     }
     
     @IBAction func tapToClose(_ tapgesture: UITapGestureRecognizer) {
@@ -729,10 +731,13 @@ class CustomView : UIView {
             switch directionValue {
             case PanDirection.up.rawValue:  //Swipe up
                 gestureRecognizer.view!.center = CGPoint(x: gestureRecognizer.view!.center.x, y: gestureRecognizer.view!.center.y + translation.y)
+                notificationBar.notificationView.center = CGPoint(x: notificationBar.notificationView.center.x, y: gestureRecognizer.view!.center.y + translation.y)
                 break
             case PanDirection.down.rawValue:  //Swipe Down
                 if showNotificationInDetail {
                     gestureRecognizer.view!.center = CGPoint(x: gestureRecognizer.view!.center.x, y: gestureRecognizer.view!.center.y + translation.y)
+                    
+                    notificationBar.notificationView.center = CGPoint(x: notificationBar.notificationView.center.x, y: gestureRecognizer.view!.center.y + translation.y)
                 }
                 break
             default:

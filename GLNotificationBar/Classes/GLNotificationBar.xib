@@ -1,8 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomView" customModule="GLNotificationBar" customModuleProvider="target">
@@ -20,6 +24,10 @@
             <rect key="frame" x="0.0" y="0.0" width="450" height="100"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aOg-WN-VQl">
+                    <rect key="frame" x="8" y="8" width="434" height="84"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
                 <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ftg-mk-xWv">
                     <rect key="frame" x="8" y="8" width="434" height="84"/>
                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="NzP-gH-LTJ">
@@ -45,7 +53,7 @@
                                                 <constraint firstAttribute="height" constant="21" id="MSi-q0-gh3"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
-                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -65,12 +73,12 @@
                                 <rect key="frame" x="17" y="30" width="409" height="41"/>
                                 <gestureRecognizers/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vuf-4T-NEn">
                                 <rect key="frame" x="197" y="76" width="40" height="3"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="Gp1-oE-fa9"/>
                                     <constraint firstAttribute="height" constant="3" id="N8C-Tg-yXQ"/>
@@ -97,9 +105,13 @@
                     </connections>
                 </visualEffectView>
             </subviews>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="ftg-mk-xWv" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="0RJ-gF-rIo"/>
+                <constraint firstItem="aOg-WN-VQl" firstAttribute="centerY" secondItem="ftg-mk-xWv" secondAttribute="centerY" id="5Ui-Td-wgG"/>
+                <constraint firstItem="aOg-WN-VQl" firstAttribute="centerX" secondItem="ftg-mk-xWv" secondAttribute="centerX" id="CIJ-Mw-Ffw"/>
+                <constraint firstItem="aOg-WN-VQl" firstAttribute="height" secondItem="ftg-mk-xWv" secondAttribute="height" id="I2c-K0-gnt"/>
+                <constraint firstItem="aOg-WN-VQl" firstAttribute="width" secondItem="ftg-mk-xWv" secondAttribute="width" id="Q0C-uV-TOK"/>
                 <constraint firstAttribute="trailing" secondItem="ftg-mk-xWv" secondAttribute="trailing" constant="8" id="QgW-jh-Del"/>
                 <constraint firstAttribute="bottom" secondItem="ftg-mk-xWv" secondAttribute="bottom" constant="8" id="Wf3-4B-eha"/>
                 <constraint firstItem="ftg-mk-xWv" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="mvU-al-iuC"/>
