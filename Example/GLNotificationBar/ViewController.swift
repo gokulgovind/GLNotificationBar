@@ -60,6 +60,8 @@ class ViewController: UIViewController {
                 self.present(alert, animated: true, completion: nil)
             }))
             
+            notificationBar.setColorStyle(.dark)
+            
             //Type: .Destructive
             notificationBar.addAction(GLNotifyAction(title: "Destructive", style: .destructive, handler: { (result) in
                 let alert = UIAlertController(title: result.actionTitle, message: " Apply a style that indicates the action might change or delete data.", preferredStyle: .alert)
