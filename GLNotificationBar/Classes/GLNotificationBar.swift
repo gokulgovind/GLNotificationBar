@@ -247,7 +247,7 @@ open class GLNotificationBar: NSObject {
         }
     }
     
-    @objc open func setShaddow(_ shadow: Bool){
+    @objc open func setShadow(_ shadow: Bool){
         if (shadow){
             notificationBar.notificationView.layer.shadowColor = UIColor.black.cgColor
             notificationBar.notificationView.layer.shadowOpacity = 0.4
