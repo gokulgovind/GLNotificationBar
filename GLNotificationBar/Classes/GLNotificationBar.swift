@@ -269,7 +269,10 @@ open class GLNotificationBar: NSObject {
         
         notificationBar = CustomView(frame: CGRect(x: 0, y: -BAR_HEIGHT, width: frameWidth!, height: BAR_HEIGHT))
         notificationBar.translatesAutoresizingMaskIntoConstraints = false
-
+        notificationBar.layer.shadowColor = UIColor.black.cgColor
+        notificationBar.layer.shadowOpacity = 1
+        notificationBar.layer.shadowOffset = CGSize.zero
+        notificationBar.layer.shadowRadius = 10
         switch notificationStyle {
         case .detailedBanner:
             notificationBar.notificationStyleIndicator.isHidden = false
