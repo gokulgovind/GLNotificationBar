@@ -109,7 +109,7 @@ var actionArray = [GLNotifyAction]()
 var timer:Timer?
 
 
-var messageDidSelect:((Bool) -> Void)!
+var messageDidSelect:((Bool) -> Void)?
 
 /**
    A GLNotificationBar object displays an banner message to user (**iOS 10 Style**) over top of the screen which helps to handle local or remote notification when app is in active state. 
@@ -698,7 +698,7 @@ class CustomView : UIView {
             })
         }
         closeMessage(nil)
-        messageDidSelect(true)
+        messageDidSelect?(true)
     }
     
     @IBAction func tapToClose(_ tapgesture: UITapGestureRecognizer) {
