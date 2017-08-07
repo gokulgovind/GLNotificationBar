@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'GLNotificationBar_Example' do
+  pod 'GLNotificationBar', :path => '../'
+
+  target 'GLNotificationBar_Tests' do
+    inherit! :search_paths
+
+
+  end
+end
