@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/cocoapods/l/GLNotificationBar.svg?style=flat)](http://cocoapods.org/pods/GLNotificationBar)
 [![Platform](https://img.shields.io/cocoapods/p/GLNotificationBar.svg?style=flat)](http://cocoapods.org/pods/GLNotificationBar)
 
-**FYI:** Updated with **swift 3.0**. For Swift 2 use tag 1.3.3
+**FYI:** Updated with **XCode 9.0** & **swift 4.0**.
 
 ![overView](ScreenShots/Demo.png)
 

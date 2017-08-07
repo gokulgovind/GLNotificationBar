@@ -12,6 +12,9 @@ import GLNotificationBar
 
 class ViewController: UIViewController {
     
+    var colorStyle:GLNotificationColorType = .extraLight
+    
+    
     @IBOutlet weak var notificationTitle: UITextField!
     @IBOutlet weak var notificationMessage: UITextField!
     @IBOutlet weak var soundName: UITextField!
@@ -52,6 +55,9 @@ class ViewController: UIViewController {
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
+        // Set visual effectview style.
+        notificationBar.setColorStyle(colorStyle)
+        
         if notificationAction.isOn {
             //Type: .Cancel
             notificationBar.addAction(GLNotifyAction(title: "Cancel", style: .cancel, handler: { (result) in
@@ -106,6 +112,21 @@ class ViewController: UIViewController {
     
     @IBAction func timeOutInterval(_ sender: UIStepper) {
         timeOutLabel.text = "Time out interval  \(String(sender.value))"
+    }
+    
+    @IBAction func selectColorType(_ sender: UIButton) {
+        let actionSheet = UIAlertController(title: "Color Type", message: nil, preferredStyle: .actionSheet)
+        actionSheet.addAction(UIAlertAction(title: "light", style: .default, handler: { (action) in
+            self.colorStyle = .light
+        }))
+        actionSheet.addAction(UIAlertAction(title: "extra light", style: .default, handler: { (action) in
+            self.colorStyle = .extraLight
+        }))
+        actionSheet.addAction(UIAlertAction(title: "dark", style: .default, handler: { (action) in
+            self.colorStyle = .dark
+        }))
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(actionSheet, animated: true, completion: nil)
     }
     
 }

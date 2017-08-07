@@ -8,29 +8,6 @@
 
 import UIKit
 import AVFoundation
-// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
-// Consider refactoring the code to use the non-optional operators.
-fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l < r
-  case (nil, _?):
-    return true
-  default:
-    return false
-  }
-}
-
-// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
-// Consider refactoring the code to use the non-optional operators.
-fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l > r
-  default:
-    return rhs < lhs
-  }
-}
 
 /**
  Notification color types.
@@ -459,7 +436,7 @@ class CustomView : UIView {
         let pan = UIPanGestureRecognizer(target: self, action: #selector(CustomView.handleDetailedPanGesture(_:)))
         detailedbanner.addGestureRecognizer(pan)
         
-        backgroudView .addSubview(mainView)
+        backgroudView.contentView.addSubview(mainView)
         
         
         dismissLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -536,7 +513,7 @@ class CustomView : UIView {
         
         toolBar.translatesAutoresizingMaskIntoConstraints = false
         toolBar.isHidden = true
-        backgroudView.addSubview(toolBar)
+        backgroudView.contentView.addSubview(toolBar)
         
         //Adding autolayout
         
@@ -569,7 +546,7 @@ class CustomView : UIView {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.showsVerticalScrollIndicator = false
         tableView.separatorStyle = .none
-        notificationActionView.addSubview(tableView)
+        notificationActionView.contentView.addSubview(tableView)
         
         var height = "0"
         let tempLabel = UILabel()
@@ -730,7 +707,7 @@ class CustomView : UIView {
             
             gestureRecognizer.setTranslation(CGPoint(x: 0,y: 0), in: self)
             
-            if gestureRecognizer.view?.frame.origin.y  > (gestureRecognizer.view?.frame.size.height)! {
+            if (gestureRecognizer.view?.frame.origin.y)!  > (gestureRecognizer.view?.frame.size.height)! {
                 self.removeFromSuperview()
                 setUpDetailedNotificationBar(header.text, body: body.text, action: [])
                 return
@@ -739,7 +716,7 @@ class CustomView : UIView {
             break
         case .ended:
             
-            if gestureRecognizer.view?.frame.origin.y  < -(self.visualEffectView.frame.origin.y) {
+            if (gestureRecognizer.view?.frame.origin.y)!  < -(self.visualEffectView.frame.origin.y) {
                 APP_DELEGATE.keyWindow?.windowLevel = 0.0
                 actionArray = [GLNotifyAction]()  //Clear cached action before leaving
                 self.removeFromSuperview()
@@ -908,6 +885,8 @@ class CustomView : UIView {
         }) 
         
         textField.translatesAutoresizingMaskIntoConstraints = false
+        // 15: Padding, 30: send button
+        textField.frame.size.width = (self.view?.frame.size.width)! - (15 + 30)
         textField.placeholder = action.actionTitle
         textField.font = UIFont.systemFont(ofSize: 14)
         textField.borderStyle = UITextBorderStyle.roundedRect
@@ -924,26 +903,29 @@ class CustomView : UIView {
         let barButtonItemOne = UIBarButtonItem(customView: textField)
         let barButtonItemtwo = UIBarButtonItem(customView: button)
         
+        let fixedWidth = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: self, action: nil)
+        fixedWidth.width = 5
+        
         toolBar.isHidden = false
-        toolBar.items = [barButtonItemOne,barButtonItemtwo]
+        toolBar.items = [fixedWidth,barButtonItemOne,fixedWidth,barButtonItemtwo,fixedWidth]
         
         
-        var constraints = [NSLayoutConstraint]()
-        let dic = ["textField":textField,"button":button,"Main":toolBar];
-        
-        let horizontalConstraint = NSLayoutConstraint.constraints(withVisualFormat: "H:|-[textField][button(60)]|", options: [], metrics: nil, views: dic)
-        constraints += horizontalConstraint
-        
-        let verticalConstraint = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[textField(30)]-|", options: [], metrics: nil, views: dic)
-        constraints += verticalConstraint
-        
-        let verticalConstraint1 = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[button]-|", options: [], metrics: nil, views: dic)
-        constraints += verticalConstraint1
-        
-//        let toolBarTopConstraint = NSLayoutConstraint.constraintsWithVisualFormat("V:[toolBar]-20-[MainView]", options: [], metrics: nil, views: ["toolBar":toolBar,"MainView":mainView])
-//        constraints += toolBarTopConstraint
-        
-        NSLayoutConstraint.activate(constraints)
+//        var constraints = [NSLayoutConstraint]()
+//        let dic = ["textField":textField,"button":button,"Main":toolBar];
+//
+//        let horizontalConstraint = NSLayoutConstraint.constraints(withVisualFormat: "H:|-[textField][button(60)]|", options: [], metrics: nil, views: dic)
+//        constraints += horizontalConstraint
+//
+//        let verticalConstraint = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[textField(30)]-|", options: [], metrics: nil, views: dic)
+//        constraints += verticalConstraint
+//
+//        let verticalConstraint1 = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[button]-|", options: [], metrics: nil, views: dic)
+//        constraints += verticalConstraint1
+//
+////        let toolBarTopConstraint = NSLayoutConstraint.constraintsWithVisualFormat("V:[toolBar]-20-[MainView]", options: [], metrics: nil, views: ["toolBar":toolBar,"MainView":mainView])
+////        constraints += toolBarTopConstraint
+//
+//        NSLayoutConstraint.activate(constraints)
         
         
         toolBarBottomConstraint = NSLayoutConstraint(item: toolBar, attribute: .bottom, relatedBy: .equal, toItem: backgroudView, attribute: .bottom, multiplier: 1, constant: 0)
@@ -1088,7 +1070,7 @@ extension UITableViewCell{
         border.borderColor = UIColor.gray.cgColor
         border.frame = CGRect(x: 0, y: 49,
                               width: 0, height: 2)
-        border.frame.size.width = (APP_DELEGATE.keyWindow?.frame.size.height > APP_DELEGATE.keyWindow?.frame.size.width ? APP_DELEGATE.keyWindow?.frame.size.height : APP_DELEGATE.keyWindow?.frame.size.width)!
+        border.frame.size.width = ((APP_DELEGATE.keyWindow?.frame.size.height)! > (APP_DELEGATE.keyWindow?.frame.size.width)! ? APP_DELEGATE.keyWindow?.frame.size.height : APP_DELEGATE.keyWindow?.frame.size.width)!
         
         border.borderWidth = 0.75
         self.layer.addSublayer(border)
