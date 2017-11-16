@@ -224,6 +224,19 @@ open class GLNotificationBar: NSObject {
         }
     }
     
+    @objc open func setShadow(_ shadow: Bool){
+        if (shadow){
+            notificationBar.notificationView.backgroundColor = UIColor.white
+            notificationBar.notificationView.layer.shadowColor = UIColor.black.cgColor
+            notificationBar.notificationView.layer.shadowOpacity = 0.4
+            notificationBar.notificationView.layer.shadowOffset = CGSize.zero
+            notificationBar.notificationView.layer.shadowRadius = 7
+        }
+    }
+    
+
+    
+    
     @IBAction func hideNotification(_ sender:UIButton) {
         if (notificationBar != nil) {
             UIView.animate(withDuration: 0.5, animations: {
@@ -245,8 +258,7 @@ open class GLNotificationBar: NSObject {
         }
         
         notificationBar = CustomView(frame: CGRect(x: 0, y: -BAR_HEIGHT, width: frameWidth!, height: BAR_HEIGHT))
-        notificationBar.translatesAutoresizingMaskIntoConstraints = false
-
+        
         switch notificationStyle {
         case .detailedBanner:
             notificationBar.notificationStyleIndicator.isHidden = false
@@ -289,6 +301,7 @@ open class GLNotificationBar: NSObject {
         notificationBar.appIcon.clipsToBounds = true
         
         
+        notificationBar.notificationView.layer.cornerRadius = 14.0
         notificationBar.visualEffectView.layer.cornerRadius = 14.0
         notificationBar.visualEffectView.clipsToBounds = true
         
@@ -358,6 +371,7 @@ class CustomView : UIView {
     @IBOutlet weak var visualEffectView: UIVisualEffectView!
     @IBOutlet weak var appIcon: UIImageView!
     @IBOutlet weak var notificationStyleIndicator: UIView!
+    @IBOutlet weak var notificationView: UIView!
     
     //MARK: Variables:
     var dismissLabelAlpha:CGFloat = 0.0
@@ -694,10 +708,13 @@ class CustomView : UIView {
             switch directionValue {
             case PanDirection.up.rawValue:  //Swipe up
                 gestureRecognizer.view!.center = CGPoint(x: gestureRecognizer.view!.center.x, y: gestureRecognizer.view!.center.y + translation.y)
+                notificationBar.notificationView.center = CGPoint(x: notificationBar.notificationView.center.x, y: gestureRecognizer.view!.center.y + translation.y)
                 break
             case PanDirection.down.rawValue:  //Swipe Down
                 if showNotificationInDetail {
                     gestureRecognizer.view!.center = CGPoint(x: gestureRecognizer.view!.center.x, y: gestureRecognizer.view!.center.y + translation.y)
+                    
+                    notificationBar.notificationView.center = CGPoint(x: notificationBar.notificationView.center.x, y: gestureRecognizer.view!.center.y + translation.y)
                 }
                 break
             default:
