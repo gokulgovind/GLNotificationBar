@@ -57,6 +57,7 @@ class ViewController: UIViewController {
         }
         // Set visual effectview style.
         notificationBar.setColorStyle(colorStyle)
+        notificationBar.setShadow(true)
         
         if notificationAction.isOn {
             //Type: .Cancel

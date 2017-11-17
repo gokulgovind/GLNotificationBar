@@ -75,6 +75,7 @@ var SHOW_TIME:Double = 5
 
 let APP_DELEGATE = UIApplication.shared
 let frameWidth:CGFloat! = UIApplication.shared.keyWindow?.bounds.width
+private let deviceHeight = UIApplication.shared.keyWindow?.bounds.height
 
 var appIconName:String!
 var appName:String!
@@ -308,12 +309,18 @@ open class GLNotificationBar: NSObject {
         let didSelectMessage = UITapGestureRecognizer(target: self, action: #selector(CustomView.didSelectmessage(_:)))
         notificationBar.addGestureRecognizer(didSelectMessage)
         
-        UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseOut, animations: { 
-            let frame = CGRect(x: 0, y: 0, width: frameWidth, height: BAR_HEIGHT)
+        UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseOut, animations: {
+            let frame:CGRect!
+            if deviceHeight == 812 { // If iPhone X yPosition shoud be heigh
+                frame = CGRect(x: 0, y: 35, width: frameWidth, height: BAR_HEIGHT)
+            }else{
+                frame = CGRect(x: 0, y: 0, width: frameWidth, height: BAR_HEIGHT)
+            }
             notificationBar.frame = frame
             }, completion: nil)
         
-        APP_DELEGATE.keyWindow?.windowLevel = (UIWindowLevelStatusBar + 1)
+        // Hide status bar except iPhone X.
+        APP_DELEGATE.keyWindow?.windowLevel = deviceHeight == 812 ? 0 :(UIWindowLevelStatusBar + 1)
         APP_DELEGATE.keyWindow!.addSubview(notificationBar)
         
         var constraints = [NSLayoutConstraint]()
@@ -643,7 +650,7 @@ class CustomView : UIView {
         let mainVerticalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|[Main_view(200@250)]-(>=5)-[Tool_Bar]-(0@250)-|", options: [], metrics: nil, views: viewDic)
         allConstraints += mainVerticalConstraints
         
-        let hostVerticalConstraint = NSLayoutConstraint.constraints(withVisualFormat: "V:|[Dismiss]-[host_View(>=20)]-10-[Button_actionView(>=0)]-(>=10)-|", options: [], metrics: nil, views: viewDic)
+        let hostVerticalConstraint = NSLayoutConstraint.constraints(withVisualFormat: "V:|-yPosition-[Dismiss]-[host_View(>=20)]-10-[Button_actionView(>=0)]-(>=10)-|", options: [], metrics: ["yPosition" : deviceHeight == 812 ? 30 : 0], views: viewDic)
         allConstraints += hostVerticalConstraint
         
         let hostSecondVerticalConstraint = NSLayoutConstraint.constraints(withVisualFormat: "V:[host_View]-(>=30)-|", options: [], metrics: nil, views: viewDic)
@@ -918,7 +925,9 @@ class CustomView : UIView {
         
         
         let barButtonItemOne = UIBarButtonItem(customView: textField)
+        barButtonItemOne.width = frameWidth - 75
         let barButtonItemtwo = UIBarButtonItem(customView: button)
+        barButtonItemtwo.width = 50
         
         let fixedWidth = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: self, action: nil)
         fixedWidth.width = 5

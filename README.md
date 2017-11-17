@@ -135,9 +135,20 @@ There are two types of `GLNotificationBar` style and Five type of `GLNotifyActio
    * This method helps to play notification sound when it is displayed.
    * If mentioned sound file is not found means system default sound will be played.
 
+- Adding Shadow & Visual Effect Style
+   * Add dropdown shadow effect to notification bar by using below function
+        `notificationBar.setShadow(true)`
+   * Change Visual effect view style using
+        `notificationBar.setColorStyle(.extraLight)`
+
 ## Author
 
 gokul, gokulece26@gmail.com
+
+## Contributors
+CavalcanteLeo, https://github.com/CavalcanteLeo
+
+jameshays, https://github.com/jameshays
 
 ## Social
 
