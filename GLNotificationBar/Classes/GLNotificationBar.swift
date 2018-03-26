@@ -67,7 +67,7 @@ enum DeviceOrientation {
     case landscape
 }
 /// Default height of `GLNotificationBar` is 100
-let BAR_HEIGHT:CGFloat = 100
+var barHeight:CGFloat = 100
 
 /// Default display time of `GLNotificationBar` is 5s
 var SHOW_TIME:Double = 5
@@ -144,9 +144,10 @@ open class GLNotificationBar: NSObject {
         }
     }
     
-    @objc open func set(headerFont fontHeader: UIFont, messageFont fontMessage: UIFont) {
+    @objc open class func set(headerFont fontHeader: UIFont, messageFont fontMessage: UIFont) {
         headerFont = fontHeader
         messageFont = fontMessage
+        barHeight = 100 + (fontHeader.pointSize - 15) + (fontMessage.pointSize - 15)
     }
 
     
@@ -247,7 +248,7 @@ open class GLNotificationBar: NSObject {
     @IBAction func hideNotification(_ sender:UIButton) {
         if (notificationBar != nil) {
             UIView.animate(withDuration: 0.5, animations: {
-                notificationBar.frame.origin = CGPoint(x: 0, y: -BAR_HEIGHT)
+                notificationBar.frame.origin = CGPoint(x: 0, y: -barHeight)
                 }, completion: { (yes) in
                     notificationBar.removeFromSuperview()
                     APP_DELEGATE.keyWindow?.windowLevel = 0.0
@@ -264,7 +265,7 @@ open class GLNotificationBar: NSObject {
             }
         }
         
-        notificationBar = CustomView(frame: CGRect(x: 0, y: -BAR_HEIGHT, width: frameWidth!, height: BAR_HEIGHT))
+        notificationBar = CustomView(frame: CGRect(x: 0, y: -barHeight, width: frameWidth!, height: barHeight))
         
         switch notificationStyle {
         case .detailedBanner:
@@ -319,9 +320,9 @@ open class GLNotificationBar: NSObject {
         UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseOut, animations: {
             let frame:CGRect!
             if deviceHeight == 812 { // If iPhone X yPosition shoud be heigh
-                frame = CGRect(x: 0, y: 35, width: frameWidth, height: BAR_HEIGHT)
+                frame = CGRect(x: 0, y: 35, width: frameWidth, height: barHeight)
             }else{
-                frame = CGRect(x: 0, y: 0, width: frameWidth, height: BAR_HEIGHT)
+                frame = CGRect(x: 0, y: 0, width: frameWidth, height: barHeight)
             }
             notificationBar.frame = frame
             }, completion: nil)
@@ -697,7 +698,7 @@ class CustomView : UIView {
     @IBAction func didSelectmessage(_ tapgesture: UITapGestureRecognizer) {
         if (notificationBar != nil) {
             UIView.animate(withDuration: 0.5, animations: {
-                notificationBar.frame.origin = CGPoint(x: 0, y: -BAR_HEIGHT)
+                notificationBar.frame.origin = CGPoint(x: 0, y: -barHeight)
                 }, completion: { (yes) in
                     notificationBar.removeFromSuperview()
             })
