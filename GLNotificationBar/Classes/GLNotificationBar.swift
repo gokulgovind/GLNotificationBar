@@ -275,7 +275,7 @@ open class GLNotificationBar: NSObject {
             notificationBar.body.text = body
         }else{
             let attributeString = NSMutableAttributedString(string: String("\(header)\n\(body)"))
-            attributeString.addAttributes([NSFontAttributeName:UIFont.boldSystemFont(ofSize: 15)], range: NSRange(location: 0, length: header.characters.count))
+            attributeString.addAttributes([NSAttributedStringKey.font:UIFont.boldSystemFont(ofSize: 15)], range: NSRange(location: 0, length: header.characters.count))
             notificationBar.body.attributedText = attributeString
         }
 
@@ -483,10 +483,10 @@ class CustomView : UIView {
         let rangeStr = tempContainer[0]
         let attributeString = NSMutableAttributedString(string: body)
         if body.contains("\n") {
-            attributeString.addAttributes([NSFontAttributeName:UIFont.boldSystemFont(ofSize: 15)], range: NSRange(location: 0, length: rangeStr.characters.count))
-            attributeString.addAttributes([NSFontAttributeName:UIFont.systemFont(ofSize: 15)], range: NSRange(location: rangeStr.characters.count, length: tempContainer[1].characters.count))
+            attributeString.addAttributes([NSAttributedStringKey.font:UIFont.boldSystemFont(ofSize: 15)], range: NSRange(location: 0, length: rangeStr.characters.count))
+            attributeString.addAttributes([NSAttributedStringKey.font:UIFont.systemFont(ofSize: 15)], range: NSRange(location: rangeStr.characters.count, length: tempContainer[1].characters.count))
         }else{
-            attributeString.addAttributes([NSFontAttributeName:UIFont.systemFont(ofSize: 15)], range: NSRange(location: 0, length: body.characters.count))
+            attributeString.addAttributes([NSAttributedStringKey.font:UIFont.systemFont(ofSize: 15)], range: NSRange(location: 0, length: body.characters.count))
         }
         
         notificationMessage.translatesAutoresizingMaskIntoConstraints = false
@@ -758,7 +758,7 @@ class CustomView : UIView {
         
     }
     
-    func handleDetailedPanGesture(_ panGesture: UIPanGestureRecognizer) {
+    @objc func handleDetailedPanGesture(_ panGesture: UIPanGestureRecognizer) {
         
         var isLandScape = false
         let translation = panGesture.translation(in: self)
@@ -1000,7 +1000,7 @@ class CustomView : UIView {
     
     
     //MARK: Notification center:
-    func keyboardWillShown(_ notification: Notification) {
+    @objc func keyboardWillShown(_ notification: Notification) {
         let info = notification.userInfo!
         let keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         
@@ -1013,7 +1013,7 @@ class CustomView : UIView {
         })
     }
     
-    func keyboardWillHide(_ notification: Notification) {
+    @objc func keyboardWillHide(_ notification: Notification) {
         let info = notification.userInfo!
         let keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         
@@ -1120,7 +1120,7 @@ extension UIColor {
 
 extension UILabel {
     func heightToFit(_ string:String,width:CGFloat) -> CGFloat{
-        let attributes = [NSFontAttributeName : UIFont.systemFont(ofSize: 14)]
+        let attributes = [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 14)]
         numberOfLines = 0
         lineBreakMode = NSLineBreakMode.byWordWrapping
         let rect = string.boundingRect(with: CGSize(width: width, height: CGFloat.greatestFiniteMagnitude), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: attributes, context: nil)
@@ -1129,7 +1129,7 @@ extension UILabel {
     }
     
     func resizeHeightToFit() {
-        let attributes = [NSFontAttributeName : UIFont.systemFont(ofSize: 14)]
+        let attributes = [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 14)]
         numberOfLines = 0
         lineBreakMode = NSLineBreakMode.byWordWrapping
         let rect = text!.boundingRect(with: CGSize(width: frame.size.width, height: CGFloat.greatestFiniteMagnitude), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: attributes, context: nil)
