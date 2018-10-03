@@ -271,11 +271,11 @@ open class GLNotificationBar: NSObject {
             break
         }
         
-        if header.characters.count == 0 {
+        if header.count == 0 {
             notificationBar.body.text = body
         }else{
             let attributeString = NSMutableAttributedString(string: String("\(header)\n\(body)"))
-            attributeString.addAttributes([NSAttributedStringKey.font:UIFont.boldSystemFont(ofSize: 15)], range: NSRange(location: 0, length: header.characters.count))
+            attributeString.addAttributes([NSAttributedStringKey.font:UIFont.boldSystemFont(ofSize: 15)], range: NSRange(location: 0, length: header.count))
             notificationBar.body.attributedText = attributeString
         }
 
@@ -483,10 +483,10 @@ class CustomView : UIView {
         let rangeStr = tempContainer[0]
         let attributeString = NSMutableAttributedString(string: body)
         if body.contains("\n") {
-            attributeString.addAttributes([NSAttributedStringKey.font:UIFont.boldSystemFont(ofSize: 15)], range: NSRange(location: 0, length: rangeStr.characters.count))
-            attributeString.addAttributes([NSAttributedStringKey.font:UIFont.systemFont(ofSize: 15)], range: NSRange(location: rangeStr.characters.count, length: tempContainer[1].characters.count))
+            attributeString.addAttributes([NSAttributedStringKey.font:UIFont.boldSystemFont(ofSize: 15)], range: NSRange(location: 0, length: rangeStr.count))
+            attributeString.addAttributes([NSAttributedStringKey.font:UIFont.systemFont(ofSize: 15)], range: NSRange(location: rangeStr.count, length: tempContainer[1].count))
         }else{
-            attributeString.addAttributes([NSAttributedStringKey.font:UIFont.systemFont(ofSize: 15)], range: NSRange(location: 0, length: body.characters.count))
+            attributeString.addAttributes([NSAttributedStringKey.font:UIFont.systemFont(ofSize: 15)], range: NSRange(location: 0, length: body.count))
         }
         
         notificationMessage.translatesAutoresizingMaskIntoConstraints = false
@@ -510,7 +510,7 @@ class CustomView : UIView {
         
         //AppIcon
         let appIcon = UIImageView()
-        if appIconName.characters.count != 0 {
+        if appIconName.count != 0 {
             appIcon.image = UIImage(named: appIconName)
         }else{
             appIcon.layer.borderColor = UIColor.gray.cgColor
@@ -663,7 +663,7 @@ class CustomView : UIView {
         if expectedContentheight > APP_DELEGATE.keyWindow!.frame.size.height - 50 {
             messageHeight = String(describing: APP_DELEGATE.keyWindow!.frame.size.height - CGFloat(actionArray.count < 4 ? actionArray.count * 50 : 200))
         }
-        if messageHeight.characters.count > 0 {
+        if messageHeight.count > 0 {
             let verticalConstraint = NSLayoutConstraint.constraints(withVisualFormat: "V:|-15-[header_Label(20)]-[separator(1)]-[container_Label(h@750)]-(>=5)-|", options: [], metrics: ["h":messageHeight], views: viewDic)
             allConstraints += verticalConstraint
         }else{
