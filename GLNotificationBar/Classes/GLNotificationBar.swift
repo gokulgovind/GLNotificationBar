@@ -244,7 +244,7 @@ open class GLNotificationBar: NSObject {
                 notificationBar.frame.origin = CGPoint(x: 0, y: -BAR_HEIGHT)
                 }, completion: { (yes) in
                     notificationBar.removeFromSuperview()
-                    APP_DELEGATE.keyWindow?.windowLevel = 0.0
+                    APP_DELEGATE.keyWindow?.windowLevel = UIWindow.Level(rawValue: 0.0)
             })
         }
     }
@@ -275,7 +275,7 @@ open class GLNotificationBar: NSObject {
             notificationBar.body.text = body
         }else{
             let attributeString = NSMutableAttributedString(string: String("\(header)\n\(body)"))
-            attributeString.addAttributes([NSAttributedStringKey.font:UIFont.boldSystemFont(ofSize: 15)], range: NSRange(location: 0, length: header.count))
+            attributeString.addAttributes([NSAttributedString.Key.font:UIFont.boldSystemFont(ofSize: 15)], range: NSRange(location: 0, length: header.count))
             notificationBar.body.attributedText = attributeString
         }
 
@@ -320,7 +320,7 @@ open class GLNotificationBar: NSObject {
             }, completion: nil)
         
         // Hide status bar except iPhone X.
-        APP_DELEGATE.keyWindow?.windowLevel = deviceHeight == 812 ? 0 :(UIWindowLevelStatusBar + 1)
+        APP_DELEGATE.keyWindow?.windowLevel = deviceHeight == 812 ? UIWindow.Level(rawValue: 0) :(UIWindow.Level.statusBar + 1)
         APP_DELEGATE.keyWindow!.addSubview(notificationBar)
         
         var constraints = [NSLayoutConstraint]()
@@ -416,8 +416,8 @@ class CustomView : UIView {
         content.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         self.addSubview(content)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(CustomView.keyboardWillShown(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(CustomView.keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(CustomView.keyboardWillShown(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(CustomView.keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
     }
 
@@ -483,10 +483,10 @@ class CustomView : UIView {
         let rangeStr = tempContainer[0]
         let attributeString = NSMutableAttributedString(string: body)
         if body.contains("\n") {
-            attributeString.addAttributes([NSAttributedStringKey.font:UIFont.boldSystemFont(ofSize: 15)], range: NSRange(location: 0, length: rangeStr.count))
-            attributeString.addAttributes([NSAttributedStringKey.font:UIFont.systemFont(ofSize: 15)], range: NSRange(location: rangeStr.count, length: tempContainer[1].count))
+            attributeString.addAttributes([NSAttributedString.Key.font:UIFont.boldSystemFont(ofSize: 15)], range: NSRange(location: 0, length: rangeStr.count))
+            attributeString.addAttributes([NSAttributedString.Key.font:UIFont.systemFont(ofSize: 15)], range: NSRange(location: rangeStr.count, length: tempContainer[1].count))
         }else{
-            attributeString.addAttributes([NSAttributedStringKey.font:UIFont.systemFont(ofSize: 15)], range: NSRange(location: 0, length: body.count))
+            attributeString.addAttributes([NSAttributedString.Key.font:UIFont.systemFont(ofSize: 15)], range: NSRange(location: 0, length: body.count))
         }
         
         notificationMessage.translatesAutoresizingMaskIntoConstraints = false
@@ -524,8 +524,8 @@ class CustomView : UIView {
         
         //Close Button
         let closeButton = UIButton()
-        closeButton.setImage(UIImage(named:"Close.png" ), for: UIControlState())
-        closeButton.addTarget(self, action: #selector(CustomView.closeMessage(_:)), for: UIControlEvents.touchUpInside)
+        closeButton.setImage(UIImage(named:"Close.png" ), for: UIControl.State())
+        closeButton.addTarget(self, action: #selector(CustomView.closeMessage(_:)), for: UIControl.Event.touchUpInside)
         closeButton.translatesAutoresizingMaskIntoConstraints = false
         detailedbanner.addSubview(closeButton)
         
@@ -595,13 +595,13 @@ class CustomView : UIView {
         return notificationActionView
     }
     
-    func addSeprator(_ toObject:AnyObject) -> UIView{
-        let frame = toObject.frame
-        let seprator = UIView(frame: CGRect(x: 0,y: (frame?.height)! + 3, width: (APP_DELEGATE.keyWindow?.frame.size.width)! - 20,height: 0.5))
-        seprator.backgroundColor = UIColor.gray
-        seprator.alpha = 0.6
-        return seprator
-    }
+//    func addSeprator(_ toObject:AnyObject) -> UIView{
+//        let frame = toObject.frame
+//        let seprator = UIView(frame: CGRect(x: 0,y: (frame?.height)! + 3, width: (APP_DELEGATE.keyWindow?.frame.size.width)! - 20,height: 0.5))
+//        seprator.backgroundColor = UIColor.gray
+//        seprator.alpha = 0.6
+//        return seprator
+//    }
     
     //MARK: AutoLayout Constraints
     func addAutoLayout(_ viewDic:[String:AnyObject]) {
@@ -741,7 +741,7 @@ class CustomView : UIView {
         case .ended:
             
             if (gestureRecognizer.view?.frame.origin.y)!  < -(self.visualEffectView.frame.origin.y) {
-                APP_DELEGATE.keyWindow?.windowLevel = 0.0
+                APP_DELEGATE.keyWindow?.windowLevel = UIWindow.Level(rawValue: 0.0)
                 actionArray = [GLNotifyAction]()  //Clear cached action before leaving
                 self.removeFromSuperview()
                 return
@@ -810,7 +810,7 @@ class CustomView : UIView {
                 }else if dismissLabel.alpha >= 1.0 && !dismissLimitReached{
                     dismissLimitReached = true
                     dismissLabel.transform = CGAffineTransform.identity.scaledBy(x: 0.0, y: 0.0)
-                    UIView.animate(withDuration: 0.3/1.5, delay: 0.0, options: UIViewAnimationOptions(), animations: {
+                    UIView.animate(withDuration: 0.3/1.5, delay: 0.0, options: UIView.AnimationOptions(), animations: {
                         self.dismissLabel.transform = CGAffineTransform.identity.scaledBy(x: 1.3, y: 1.3)
                     }) { (bool) in
                         UIView.animate(withDuration: 0.3/2, delay: 0.0, options: .curveEaseIn, animations: {
@@ -913,13 +913,13 @@ class CustomView : UIView {
         textField.frame.size.width = (self.view?.frame.size.width)! - (15 + 30)
         textField.placeholder = action.actionTitle
         textField.font = UIFont.systemFont(ofSize: 14)
-        textField.borderStyle = UITextBorderStyle.roundedRect
+        textField.borderStyle = UITextField.BorderStyle.roundedRect
         
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Send", for: UIControlState())
+        button.setTitle("Send", for: UIControl.State())
         button.tag = senderTag
-        button.setTitleColor(UIColor.init(netHex: 0x095FFE), for: UIControlState())
+        button.setTitleColor(UIColor.init(netHex: 0x095FFE), for: UIControl.State())
         button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
         button.addTarget(self, action: #selector(CustomView.sendButtonPressed(_:)), for: .touchUpInside)
         
@@ -987,7 +987,7 @@ class CustomView : UIView {
     @IBAction func closeMessage(_ sender: UIButton?) {
         actionArray = [GLNotifyAction]()  //Clear cached action before leaving
         textField.resignFirstResponder()
-        APP_DELEGATE.keyWindow?.windowLevel = 0.0
+        APP_DELEGATE.keyWindow?.windowLevel = UIWindow.Level(rawValue: 0.0)
 
         UIView.animate(withDuration: 0.5, animations: {
             self.mainView.frame.origin = CGPoint(x: 0, y: (APP_DELEGATE.keyWindow?.frame.size.height)!)
@@ -1002,7 +1002,7 @@ class CustomView : UIView {
     //MARK: Notification center:
     @objc func keyboardWillShown(_ notification: Notification) {
         let info = notification.userInfo!
-        let keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let keyboardFrame: CGRect = (info[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         
         UIView.animate(withDuration: 0.1, animations: { () -> Void in
             if self.toolBarBottomConstraint != nil {
@@ -1015,7 +1015,7 @@ class CustomView : UIView {
     
     @objc func keyboardWillHide(_ notification: Notification) {
         let info = notification.userInfo!
-        let keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let keyboardFrame: CGRect = (info[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         
         UIView.animate(withDuration: 0.1, animations: { () -> Void in
             if self.toolBarBottomConstraint != nil {
@@ -1120,7 +1120,7 @@ extension UIColor {
 
 extension UILabel {
     func heightToFit(_ string:String,width:CGFloat) -> CGFloat{
-        let attributes = [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 14)]
+        let attributes = [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 14)]
         numberOfLines = 0
         lineBreakMode = NSLineBreakMode.byWordWrapping
         let rect = string.boundingRect(with: CGSize(width: width, height: CGFloat.greatestFiniteMagnitude), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: attributes, context: nil)
@@ -1129,7 +1129,7 @@ extension UILabel {
     }
     
     func resizeHeightToFit() {
-        let attributes = [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 14)]
+        let attributes = [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 14)]
         numberOfLines = 0
         lineBreakMode = NSLineBreakMode.byWordWrapping
         let rect = text!.boundingRect(with: CGSize(width: frame.size.width, height: CGFloat.greatestFiniteMagnitude), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: attributes, context: nil)

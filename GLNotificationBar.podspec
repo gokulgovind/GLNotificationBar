@@ -7,9 +7,10 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'GLNotificationBar'
-  s.version          = '2.3.6'
-  s.summary          = 'GLNotificationBar lets user to handle push  notification when app is active.'
+s.name             = 'GLNotificationBar'
+s.version          = '2.3.5'
+s.summary          = 'GLNotificationBar lets user to handle push  notification when app is active.'
+s.swift_version = '3.1'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -17,27 +18,27 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
-  s.description      = <<-DESC
- GLNotificationBar is a open source library that lets developers to display push notification or any alert message to end user as banner. iOS below 10 does't displays notification when app is active. This library is inspired by Apple's ios10 notification bar.
-                       DESC
+s.description      = <<-DESC
+GLNotificationBar is a open source library that lets developers to display push notification or any alert message to end user as banner. iOS below 10 does't displays notification when app is active. This library is inspired by Apple's ios10 notification bar.
+DESC
 
-  
-  s.homepage         = 'https://github.com/gokulgovind/GLNotificationBar'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
-  s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'gokul' => 'gokulece26@gmail.com' }
-  s.source           = { :git => 'https://github.com/gokulgovind/GLNotificationBar.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/gokulgovind_'
 
-  s.ios.deployment_target = '8.0'
+s.homepage         = 'https://github.com/gokulgovind/GLNotificationBar'
+# s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+s.license          = { :type => 'MIT', :file => 'LICENSE' }
+s.author           = { 'gokul' => 'gokulece26@gmail.com' }
+s.source           = { :git => 'https://github.com/gokulgovind/GLNotificationBar.git', :tag => s.version.to_s }
+# s.social_media_url = 'https://twitter.com/gokulgovind_'
 
-  s.source_files = 'GLNotificationBar/Classes/**/*'
-  
-   s.resource_bundles = {
-     'GLNotificationBar' => ['GLNotificationBar/Classes/*.xib','GLNotificationBar/Assets/*.png']
-   }
+s.ios.deployment_target = '8.0'
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  s.frameworks = 'UIKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+s.source_files = 'GLNotificationBar/Classes/**/*'
+
+s.resource_bundles = {
+'GLNotificationBar' => ['GLNotificationBar/Classes/*.xib','GLNotificationBar/Assets/*.png']
+}
+
+# s.public_header_files = 'Pod/Classes/**/*.h'
+s.frameworks = 'UIKit'
+# s.dependency 'AFNetworking', '~> 2.3'
 end
